@@ -1,7 +1,4 @@
 ###
-angular-google-maps
-https://github.com/nlaplante/angular-google-maps
-
 @authors
 Nicholas McCready - https://twitter.com/nmccready
 Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawing-freehand  , &
@@ -9,7 +6,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
 ###
 angular.module('uiGmapgoogle-maps.directives.api.models.child')
 .factory 'uiGmapDrawFreeHandChildModel', ['uiGmapLogger', '$q', ($log, $q) ->
-  drawFreeHand = (map, @polys, enable) ->
+  drawFreeHand = (map, polys, enable) ->
     poly = new google.maps.Polyline
       map: map
       clickable: false

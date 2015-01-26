@@ -1,8 +1,20 @@
 angular.module('uiGmapgoogle-maps.directives.api')
 .factory 'uiGmapIWindow', [
-  'uiGmapBaseObject', 'uiGmapChildEvents', 'uiGmapLogger', 'uiGmapCtrlHandle',
-  (BaseObject, ChildEvents, Logger, CtrlHandle) ->
+  'uiGmapBaseObject', 'uiGmapChildEvents', 'uiGmapCtrlHandle',
+  (BaseObject, ChildEvents, CtrlHandle) ->
     class IWindow extends BaseObject
+      IWindow.scope =
+        coords: '=coords',
+        template: '=template',
+        templateUrl: '=templateurl',
+        templateParameter: '=templateparameter',
+        isIconVisibleOnClick: '=isiconvisibleonclick',
+        closeClick: '&closeclick',
+        options: '=options'
+        control: '=control'
+        show: '=show'
+      IWindow.scopeKeys = _.keys(IWindow.scope)
+
       @include ChildEvents
       @extend CtrlHandle
       constructor:  ->
@@ -12,16 +24,6 @@ angular.module('uiGmapgoogle-maps.directives.api')
         @priority = -100
         @require = '^' + 'uiGmapGoogleMap'
         @replace = true
-        @scope = {
-          coords: '=coords',
-          template: '=template',
-          templateUrl: '=templateurl',
-          templateParameter: '=templateparameter',
-          isIconVisibleOnClick: '=isiconvisibleonclick',
-          closeClick: '&closeclick',
-          options: '=options'
-          control: '=control'
-          show: '=show'
-        }
-        @$log = Logger
+        @scope = _.extend @scope or {}, IWindow.scope
+
 ]
