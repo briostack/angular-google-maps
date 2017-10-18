@@ -6498,6 +6498,23 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
                 return settingCenterFromScope = false;
               }, true);
               zoomPromise = null;
+
+              // if the window is resized the resize event must trigger to ensure all map tiles are loaded
+              // throttle the number of times this event triggers a function / change
+              window.addEventListener('resize', resizeThrottler, false);
+              var resizeTimeout;
+              function resizeThrottler() {
+                if (!resizeTimeout) {
+                  resizeTimeout = setTimeout(function() {
+                    resizeTimeout = null;
+                    actualResizeHandler();
+                  }, 100);
+                }
+              }
+              function actualResizeHandler() {
+                google.maps.event.trigger(_gMap, 'resize');
+              }
+
               scope.$watch('zoom', function(newValue, oldValue) {
                 var settingZoomFromScope, _ref1, _ref2;
                 if (newValue == null) {
