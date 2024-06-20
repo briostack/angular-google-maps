@@ -6532,7 +6532,11 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               return ['options', 'styles'].forEach(function(toWatch) {
                 return scope.$watch(toWatch, function(newValue, oldValue) {
                   var watchItem;
-                  watchItem = this.exp;
+                  if ((typeof this !== "undefined" && this !== null)) {
+                    watchItem = this.exp;
+                  } else {
+                    watchItem = null;
+                  }
                   if (_.isEqual(newValue, oldValue)) {
                     return;
                   }
