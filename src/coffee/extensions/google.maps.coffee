@@ -28,12 +28,6 @@ angular.module('uiGmapgoogle-maps.extensions')
       @_close(true)
       return
 
-    google.maps.InfoWindow::isOpen = (val = undefined) ->
-      unless val?
-        return @_isOpen
-      else
-        @_isOpen = val
-
     ###
     Do the same for InfoBox
     TODO: Clean this up so the logic is defined once, wait until develop becomes master as this will be easier
