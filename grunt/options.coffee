@@ -67,7 +67,7 @@ concatDistMapped.dest = "dist/<%= pkg.name %>_dev_mapped.js"
 uglifyDist=
   options:
     banner: "/*! <%= pkg.name %> <%= pkgFn().version %> <%= grunt.template.today(\"yyyy-mm-dd\") %>\n *  <%= pkg.description %>\n *  <%= pkg.repository.type %>: <%= pkg.repository.url %>\n */\n"
-    compress: true
+    compress: {}
     report: "gzip"
   src: "dist/<%= pkg.name %>.js"
   dest: "dist/<%= pkg.name %>.min.js"
