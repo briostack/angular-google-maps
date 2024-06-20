@@ -3,6 +3,7 @@
     "gmap-util-keydragzoom": "https://github.com/googlemaps/v3-utility-library/raw/keydragzoom/2.0.9/src/keydragzoom.js",
     "gmap-util-infobox": "https://github.com/googlemaps/v3-utility-library/raw/infobox/1.1.12/src/infobox.js",
     "gmap-util-markerclustererplus": "https://github.com/googlemaps/v3-utility-library/raw/markerclustererplus/2.1.1/src/markerclusterer.js",
-    "gmap-util-markerwithlabel": "https://github.com/googlemaps/v3-utility-library/raw/markerwithlabel/1.1.9/src/markerwithlabel.js"
+    "gmap-util-markerwithlabel": "https://github.com/googlemaps/v3-utility-library/raw/markerwithlabel/1.1.9/src/markerwithlabel.js",
+    "uuid": "https://github.com/LiosK/UUID.js/raw/v3.2/dist/uuid.core.js"
   }
 }

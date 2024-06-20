@@ -228,7 +228,7 @@ module.exports = (grunt) ->
         options:
           patterns: [
             match: 'REPLACE_W_LIBS',
-            replacement: '<%= grunt.file.read("bower_components/uuid/dist/uuid.core.js") %>'
+            replacement: '<%= grunt.file.read("curl_components/uuid/index.js") %>'
           ]
         src: 'src/js/wrapped/uuid.core.js'
         dest: 'tmp/wrapped_uuid.js'
