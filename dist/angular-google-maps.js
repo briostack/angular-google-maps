@@ -1,4 +1,4 @@
-/*! angular-google-maps 2.0.12 2015-01-21
+/*! angular-google-maps 2.0.12 2024-06-20
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
@@ -5982,7 +5982,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
           "static": '@',
           control: '=',
           options: '=',
-          events: '='
+          events: "="
         }
       };
     }
@@ -6498,23 +6498,6 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
                 return settingCenterFromScope = false;
               }, true);
               zoomPromise = null;
-
-              // if the window is resized the resize event must trigger to ensure all map tiles are loaded
-              // throttle the number of times this event triggers a function / change
-              window.addEventListener('resize', resizeThrottler, false);
-              var resizeTimeout;
-              function resizeThrottler() {
-                if (!resizeTimeout) {
-                  resizeTimeout = setTimeout(function() {
-                    resizeTimeout = null;
-                    actualResizeHandler();
-                  }, 100);
-                }
-              }
-              function actualResizeHandler() {
-                google.maps.event.trigger(_gMap, 'resize');
-              }
-
               scope.$watch('zoom', function(newValue, oldValue) {
                 var settingZoomFromScope, _ref1, _ref2;
                 if (newValue == null) {
@@ -6549,7 +6532,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               return ['options', 'styles'].forEach(function(toWatch) {
                 return scope.$watch(toWatch, function(newValue, oldValue) {
                   var watchItem;
-                  watchItem = this == null ? null : this.exp;
+                  watchItem = this.exp;
                   if (_.isEqual(newValue, oldValue)) {
                     return;
                   }
@@ -11470,6 +11453,12 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
   this.label.setMap(theMap);
 };
 
+/*
+ Version: core-1.0
+ The MIT License: Copyright (c) 2012 LiosK.
+*/
+function UUID(){}UUID.generate=function(){var a=UUID._gri,b=UUID._ha;return b(a(32),8)+"-"+b(a(16),4)+"-"+b(16384|a(12),4)+"-"+b(32768|a(14),4)+"-"+b(a(48),12)};UUID._gri=function(a){return 0>a?NaN:30>=a?0|Math.random()*(1<<a):53>=a?(0|1073741824*Math.random())+1073741824*(0|Math.random()*(1<<a-30)):NaN};UUID._ha=function(a,b){for(var c=a.toString(16),d=b-c.length,e="0";0<d;d>>>=1,e+=e)d&1&&(c=e+c);return c};
+
       //END REPLACE
       window.InfoBox = InfoBox;
       window.Cluster = Cluster;
@@ -11483,48 +11472,48 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 ;/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	angular.module('uiGmapgoogle-maps.wrapped')
 	.service('uiGmapDataStructures', function() {
@@ -11535,9 +11524,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	});
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function() {
 	  module.exports = {
@@ -11553,9 +11542,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	/*
 	Graph implemented as a modified incidence list. O(1) for every typical
@@ -11847,9 +11836,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	/*
 	Minimum heap, i.e. smallest node at root.
@@ -11994,9 +11983,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	/*
 	Doubly Linked.
@@ -12271,9 +12260,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	/*
 	Kind of a stopgap measure for the upcoming [JavaScript
@@ -12462,9 +12451,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	/*
 	Amortized O(1) dequeue!
@@ -12554,9 +12543,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	/*
 	Credit to Wikipedia's article on [Red-black
@@ -13017,9 +13006,9 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	Good for fast insertion/removal/lookup of strings.
@@ -13270,8 +13259,8 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
 	}).call(this);
 
 
-/***/ }
-/******/ ]);/**
+/***/ })
+/******/ ]);;/**
  * Performance overrides on MarkerClusterer custom to Angular Google Maps
  *
  * Created by Petr Bruna ccg1415 and Nick McCready on 7/13/14.
