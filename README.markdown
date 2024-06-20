@@ -1,5 +1,9 @@
 # angular-google-maps
 
+> Briostack
+*Build with node v10.24.1*
+
+
 > AngularJS directives for Google Maps
 
 
