@@ -14,12 +14,10 @@ module.exports = (grunt) ->
     "grunt-open"
     "grunt-mkdir"
     "grunt-contrib-coffee"
-    "grunt-contrib-jasmine"
     "grunt-conventional-changelog"
     "grunt-bump"
     'grunt-replace'
     'grunt-subgrunt'
-    'grunt-debug-task'
     'grunt-curl'
     'grunt-verbosity'
     'grunt-webpack'
@@ -50,17 +48,17 @@ module.exports = (grunt) ->
   # Default task: build a release in dist/
   grunt.registerTask "default", [
     'verbosity', "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat:dist",
-    "copy", "uglify::dist", "jasmine:consoleSpec"]
+    "copy", "uglify::dist"]
 
 
   # run default "grunt" prior to generate _SpecRunner.html
   grunt.registerTask "spec", [
     'verbosity', "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat",
-    "copy", "connect:jasmineServer", "jasmine:spec", "open:jasmine", "watch:spec"]
+    "copy", "watch:spec"]
 
   grunt.registerTask "coverage", [
     "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "concat:dist",
-    "copy", "uglify:dist", "jasmine:coverage"]
+    "copy", "uglify:dist"]
 
   grunt.registerTask 'default-no-specs', [
     "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "concat:dist",
@@ -70,13 +68,13 @@ module.exports = (grunt) ->
 
   dev = ["clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat", "copy"]
 
-  grunt.registerTask "dev", dev.concat ["uglify:distMapped", "jasmine:spec"]
+  grunt.registerTask "dev", dev.concat ["uglify:distMapped"]
 
-  grunt.registerTask "fast", dev.concat ["jasmine:spec"]
+  grunt.registerTask "fast", dev.concat []
 
   grunt.registerTask "mappAll", [
     "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat", "uglify"
-    "copy", "jasmine:spec"]
+    "copy"]
 
   # Run the example page by creating a local copy of angular-google-maps.js
   # and running a webserver on port 3100 with livereload. Web page is opened

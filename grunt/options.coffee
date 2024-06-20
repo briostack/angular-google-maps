@@ -1,5 +1,4 @@
 log = require('util').log
-jasmineSettings = require './jasmine'
 _ = require 'lodash'
 
 pipeline = [
@@ -217,10 +216,6 @@ module.exports = (grunt) ->
       options:
         dest: "CHANGELOG.md"
 
-    jasmine:
-      spec: jasmineSettings.spec
-      consoleSpec: jasmineSettings.consoleSpec
-
     replace:
       utils:
         options:
@@ -247,7 +242,7 @@ module.exports = (grunt) ->
     verbosity:
       quiet:
         options: mode: 'dot'
-        tasks: ['coffee', 'clean', 'cleam:dist', 'copy', 'concat', 'jasmineSettings',
+        tasks: ['coffee', 'clean', 'cleam:dist', 'copy', 'concat',
           'mkdir:all', 'jshint', 'uglify', 'replace', 'concat:dist', 'concat:libs']
 
     # for  commonjs libraries that need to be rolled in
@@ -260,5 +255,4 @@ module.exports = (grunt) ->
           path: "tmp/"
           filename: "webpack.[name].js",
 
-  options.jasmine.coverage = jasmineSettings.coverage if jasmineSettings.coverage
   return options
