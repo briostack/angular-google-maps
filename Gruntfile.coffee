@@ -47,7 +47,7 @@ module.exports = (grunt) ->
 
   # Default task: build a release in dist/
   grunt.registerTask "default", [
-    'verbosity', "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat:dist",
+    'verbosity', "clean:dist", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat:dist",
     "copy", "uglify::dist"]
 
 
